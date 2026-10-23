@@ -4,123 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fusion Business & Print Solutions | Your Gateway to Business Excellence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter for a clean, modern corporate feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0B132B;
-            --secondary: #1C2541;
-            --accent: #4361EE;
-            --accent-glow: #4CC9F0;
-            --bg-light: #F8F9FA;
-            --text-main: #212529;
-            --text-muted: #6C757D;
-            --white: #FFFFFF;
-            --card-border: #E2E8F0;
+            --bg-body: #0a0f1d;
+            --bg-surface: #131b31;
+            --bg-card: #1b2642;
+            --border-color: #273559;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-light);
+            background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* Header & Nav */
+        /* Navigation Header */
         header {
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: rgba(10, 15, 29, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--white);
+            color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
+            letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: var(--accent-glow);
+        .logo i {
+            color: var(--accent-cyan);
         }
 
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
-            color: #E0E1DD;
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-glow);
+            color: var(--text-main);
         }
 
         .nav-highlight {
-            color: var(--accent-glow) !important;
-            font-weight: 700 !important;
+            color: var(--accent-cyan) !important;
+            font-weight: 600 !important;
         }
 
         .nav-cta {
-            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
-            color: var(--white) !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
+            background: var(--accent-gradient);
+            color: white !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
             font-weight: 600 !important;
-            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            padding: 9rem 2rem 6rem 2rem;
+            background: radial-gradient(circle at 50% 20%, #172554 0%, var(--bg-body) 70%);
+            padding: 9rem 2rem 5rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: var(--bg-light);
-            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero-content {
@@ -130,27 +123,29 @@
 
         .badge {
             display: inline-block;
-            background: rgba(76, 201, 240, 0.15);
-            color: var(--accent-glow);
-            padding: 0.4rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.35rem 0.85rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(76, 201, 240, 0.3);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
             font-size: clamp(2.2rem, 4vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             letter-spacing: -1px;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #C5C6C7;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-muted);
             margin-bottom: 2.5rem;
             max-width: 650px;
             margin-left: auto;
@@ -168,59 +163,60 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
             cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
         }
 
         .btn-primary:hover {
-            background: #3a56d4;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
+            opacity: 0.95;
         }
 
         .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
         }
 
         .btn-outline:hover {
-            border-color: var(--accent-glow);
-            color: var(--accent-glow);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
         }
 
-        /* Main Container */
+        /* Container Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 5rem 2rem;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
             letter-spacing: -0.5px;
         }
 
         .section-title p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -229,174 +225,167 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-bottom: 4rem;
         }
 
         .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--bg-surface);
+            padding: 2.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(11, 19, 43, 0.08);
-            border-color: var(--accent);
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
         }
 
         .service-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
         }
 
         .service-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
-        /* Specialized Realtor Hub Banner */
+        /* Specialized Realtor Hub Callout Banner */
         .hub-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
+            background: var(--bg-surface);
+            padding: 2.5rem;
+            border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 2rem;
-            margin-bottom: 5rem;
-            border: 1px solid var(--accent);
-        }
-
-        .hub-banner-content max-width {
-            max-width: 650px;
+            margin-bottom: 4rem;
+            border: 1px solid var(--accent-blue);
         }
 
         .hub-banner h3 {
-            color: var(--white);
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .hub-banner p {
-            color: #C5C6C7;
-            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
             margin-bottom: 0;
         }
 
         /* Partner Ecosystem / Tools Section */
         .ecosystem-section {
-            background: var(--white);
-            padding: 5rem 2rem;
-            border-radius: 24px;
-            border: 1px solid var(--card-border);
-            margin-bottom: 5rem;
+            background: var(--bg-surface);
+            padding: 4rem 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 4rem;
         }
 
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .tool-card {
-            background: var(--bg-light);
-            border: 1px solid var(--card-border);
-            padding: 2rem;
-            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.2s ease;
+            transition: border-color 0.2s ease;
         }
 
         .tool-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            border-color: var(--accent-cyan);
         }
 
         .tool-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 1rem;
+            gap: 10px;
+            margin-bottom: 0.75rem;
         }
 
         .tool-header i {
-            font-size: 1.4rem;
-            color: var(--accent);
+            font-size: 1.25rem;
+            color: var(--accent-cyan);
         }
 
         .tool-header h4 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text-main);
         }
 
         .tool-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            margin-bottom: 1.25rem;
         }
 
         .tool-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: var(--accent);
+            color: var(--accent-cyan);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         .tool-link:hover {
-            color: var(--primary);
+            color: white;
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary);
-            color: #A0AAB2;
-            padding: 4rem 2rem 2rem 2rem;
+            background-color: var(--bg-surface);
+            color: var(--text-muted);
+            padding: 3rem 2rem;
             text-align: center;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-content {
             max-width: 600px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 1.5rem auto;
         }
 
         .footer-content h3 {
-            color: var(--white);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            color: var(--text-main);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
@@ -412,7 +401,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fa-solid fa-cube" style="color: var(--accent-glow);"></i> Fusion Business <span>& Print Solutions</span>
+                <i class="fa-solid fa-cube"></i> Fusion Business <span>& Print Solutions</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -466,7 +455,7 @@
         <!-- Realtor Hub Special Banner -->
         <div class="hub-banner">
             <div>
-                <span class="badge" style="background: rgba(67, 97, 238, 0.2); margin-bottom: 0.8rem;">Specialized Industry Portal</span>
+                <span class="badge" style="margin-bottom: 0.5rem;">Specialized Industry Portal</span>
                 <h3>Realtor Print & Marketing Hub</h3>
                 <p>Looking for real estate-specific coroplast signs, riders, sandwich boards, and custom agent packages? Visit our dedicated industry portal.</p>
             </div>
