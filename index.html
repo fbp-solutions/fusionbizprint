@@ -1,565 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fusion Business & Print Solutions | Your Gateway to Business Excellence</title>
-    <!-- Google Fonts: Inter for a clean, modern corporate feel -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-body: #0a0f1d;
-            --bg-surface: #131b31;
-            --bg-card: #1b2642;
-            --border-color: #273559;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-blue: #3b82f6;
-            --accent-cyan: #06b6d4;
-            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Navigation Header */
-        header {
-            background-color: rgba(10, 15, 29, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--text-main);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .logo i {
-            color: var(--accent-cyan);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        .nav-highlight {
-            color: var(--accent-cyan) !important;
-            font-weight: 600 !important;
-        }
-
-        .nav-cta {
-            background: var(--accent-gradient);
-            color: white !important;
-            padding: 0.5rem 1.25rem;
-            border-radius: 6px;
-            font-weight: 600 !important;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-            transition: opacity 0.2s;
-        }
-
-        .nav-cta:hover {
-            opacity: 0.9;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: radial-gradient(circle at 50% 20%, #172554 0%, var(--bg-body) 70%);
-            padding: 9rem 2rem 5rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-cyan);
-            padding: 0.35rem 0.85rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 1.25rem;
-            letter-spacing: -1px;
-            line-height: 1.15;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            opacity: 0.95;
-        }
-
-        .btn-outline {
-            background: var(--bg-surface);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-        }
-
-        /* Container Layout */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.5px;
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Core Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .service-card {
-            background: var(--bg-surface);
-            padding: 2.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-blue);
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-size: 1.25rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        /* Specialized Realtor Hub Callout Banner */
-        .hub-banner {
-            background: var(--bg-surface);
-            padding: 2.5rem;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 4rem;
-            border: 1px solid var(--accent-blue);
-        }
-
-        .hub-banner h3 {
-            color: var(--text-main);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hub-banner p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        /* Partner Ecosystem / Tools Section */
-        .ecosystem-section {
-            background: var(--bg-surface);
-            padding: 4rem 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 4rem;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .tool-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 1.75rem;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: border-color 0.2s ease;
-        }
-
-        .tool-card:hover {
-            border-color: var(--accent-cyan);
-        }
-
-        .tool-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.75rem;
-        }
-
-        .tool-header i {
-            font-size: 1.25rem;
-            color: var(--accent-cyan);
-        }
-
-        .tool-header h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .tool-card p {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .tool-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.88rem;
-        }
-
-        .tool-link:hover {
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--bg-surface);
-            color: var(--text-muted);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        .footer-content h3 {
-            color: var(--text-main);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-cube"></i> Fusion Business <span>& Print Solutions</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#ecosystem">Partner Tools</a></li>
-                <li><a href="https://realtorhub.fusionbizprint.com/" target="_blank" class="nav-highlight"><i class="fa-solid fa-house-user"></i> Realtor Hub</a></li>
-                <li><a href="#ecosystem" class="nav-cta">Get Started Free</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge">Your Gateway to Business Excellence</span>
-            <h1>Fusion Business & Print Solutions</h1>
-            <p>Grow your business with a single partner. From corporate registration and digital growth strategies to executive coaching, brand development, and premium print solutions—we handle it all.</p>
-            <div class="btn-group">
-                <a href="#ecosystem" class="btn btn-primary">Explore Partner Tools <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Container -->
-    <main class="container">
-
-        <!-- Core Services -->
-        <div id="services" class="section-title">
-            <h2>Core Solutions</h2>
-            <p>Comprehensive strategy and physical execution tailored to launch and scale your enterprise.</p>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-chess"></i></div>
-                <h3>Business Consulting & Strategy</h3>
-                <p>Strategic guidance to help your enterprise scale. We help streamline operations, optimize workflows, and build a solid foundation for sustainable growth.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-print"></i></div>
-                <h3>Print Solutions & Marketing</h3>
-                <p>High-impact physical branding. From large-format signage and real estate collateral to premium velvet business cards and marketing essentials.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
-                <h3>Partner Integrations & Tech</h3>
-                <p>Curated digital infrastructure support. We connect you with trusted e-commerce, legal formation, domain management, and growth tools.</p>
-            </div>
-        </div>
-
-        <!-- Realtor Hub Special Banner -->
-        <div class="hub-banner">
-            <div>
-                <span class="badge" style="margin-bottom: 0.5rem;">Specialized Industry Portal</span>
-                <h3>Realtor Print & Marketing Hub</h3>
-                <p>Looking for real estate-specific coroplast signs, riders, sandwich boards, and custom agent packages? Visit our dedicated industry portal.</p>
-            </div>
-            <div>
-                <a href="https://realtorhub.fusionbizprint.com/" target="_blank" class="btn btn-primary" style="white-space: nowrap;">
-                    Visit Realtor Hub <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Partner Ecosystem / Tools Section -->
-        <div id="ecosystem" class="ecosystem-section">
-            <div class="section-title" style="margin-bottom: 2.5rem;">
-                <h2>Curated Partner Ecosystem</h2>
-                <p>Industry-standard platforms and tools we hand-select and integrate to future-proof your business workflow.</p>
-            </div>
-
-            <div class="tools-grid">
-                <!-- Ownr -->
-                <div class="tool-card">
-                    <div>
-                        <div class="tool-header">
-                            <i class="fa-solid fa-file-contract"></i>
-                            <h4>Ownr Integration</h4>
-                        </div>
-                        <p>Streamline business registration, incorporation, and ongoing corporate compliance, including bookkeeping and minute books.</p>
-                    </div>
-                    <a href="https://partners.ownr.co/51b3uwh45bsg" target="_blank" class="tool-link">Access Partner Link <i class="fa-solid fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- Shopify -->
-                <div class="tool-card">
-                    <div>
-                        <div class="tool-header">
-                            <i class="fa-solid fa-store"></i>
-                            <h4>Shopify E-Commerce</h4>
-                        </div>
-                        <p>Launch a high-performing storefront seamlessly aligned with your digital brand and print fulfillment channels.</p>
-                    </div>
-                    <a href="https://shopify.pxf.io/9L5Mjj" target="_blank" class="tool-link">Access Partner Link <i class="fa-solid fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- Google Workspace -->
-                <div class="tool-card">
-                    <div>
-                        <div class="tool-header">
-                            <i class="fa-solid fa-cloud"></i>
-                            <h4>Google Workspace & Gemini AI</h4>
-                        </div>
-                        <p>Empower operations with custom business email, cloud file storage, docs, and advanced AI-driven productivity workflows.</p>
-                    </div>
-                    <a href="https://c.gle/AAuDWvkgPYpLeaGgIh7SiWTk_JT-439NaqE54jTLe_4ukc0I8ROGf65vPUzTORngdMiRbI16kKh0R_7lLJ7FyEO_a4K80JM4QoDiUFlH65jyv3wT5Jtgkb_DfsqmZlWL0iQsjLe9h1a9yUMlG1xnQztF" target="_blank" class="tool-link">Access Partner Link <i class="fa-solid fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- Fiverr -->
-                <div class="tool-card">
-                    <div>
-                        <div class="tool-header">
-                            <i class="fa-solid fa-pen-nib"></i>
-                            <h4>Fiverr Marketplace</h4>
-                        </div>
-                        <p>Scale your creative output by connecting with top-tier freelance designers, copywriters, and media producers.</p>
-                    </div>
-                    <a href="https://go.fiverr.com/visit/?bta=1007406&brand=fiverrmarketplace" target="_blank" class="tool-link">Access Partner Link <i class="fa-solid fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- Flodesk -->
-                <div class="tool-card">
-                    <div>
-                        <div class="tool-header">
-                            <i class="fa-solid fa-envelope-open-text"></i>
-                            <h4>Flodesk Email Marketing</h4>
-                        </div>
-                        <p>Design high-converting, gorgeous email newsletters and automated sales funnels that nurture your audience effortlessly.</p>
-                    </div>
-                    <a href="https://flodesk.com/c/C01WPQ" target="_blank" class="tool-link">Access Partner Link <i class="fa-solid fa-external-link-alt"></i></a>
-                </div>
-
-                <!-- Dynadot -->
-                <div class="tool-card">
-                    <div>
-                        <div class="tool-header">
-                            <i class="fa-solid fa-globe"></i>
-                            <h4>Dynadot Domains</h4>
-                        </div>
-                        <p>Secure and manage your custom domain names safely, quickly, and affordably with reliable domain registry tools.</p>
-                    </div>
-                    <span class="tool-link" style="color: var(--text-muted); cursor: default;">Link Coming Soon</span>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <h3>Fusion Business & Print Solutions</h3>
-            <p>Your single partner for business strategy, trusted tools, and physical execution. Let's build something amazing together.</p>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Fusion Business & Print Solutions. All rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusion Business & Print Solutions | Your Gateway to Business Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --executive-navy: #0F2B48;
+      --brushed-gold: #C5A059;
+      --brushed-gold-hover: #b08d48;
+      --warm-studio-paper: #F8F6F0;
+      --navy-light: #163c63;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --white: #FFFFFF;
+      --shadow-sm: 0 1px 3px rgba(15, 43, 72, 0.08);
+      --shadow-md: 0 4px 12px rgba(15, 43, 72, 0.1);
+      --shadow-lg: 0 10px 25px rgba(15, 43, 72, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--warm-studio-paper);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation Header */
+    header {
+      background-color: var(--executive-navy);
+      color: var(--white);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-md);
+      border-bottom: 3px solid var(--brushed-gold);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--executive-navy);
+      border: 2px solid var(--brushed-gold);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--brushed-gold);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    .logo-subtitle {
+      font-size: 0.65rem;
+      color: var(--brushed-gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--brushed-gold);
+    }
+
+    .nav-highlight {
+      color: var(--brushed-gold) !important;
+      font-weight: 700 !important;
+    }
+
+    .btn-primary {
+      background-color: var(--brushed-gold);
+      color: var(--executive-navy);
+      padding: 0.65rem 1.35rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--brushed-gold-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--executive-navy);
+      padding: 0.65rem 1.35rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid var(--executive-navy);
+      transition: all 0.2s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--executive-navy);
+      color: var(--white);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--executive-navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      padding: 5rem 2rem 5.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .badge-gold {
+      background-color: rgba(197, 160, 89, 0.15);
+      color: var(--brushed-gold);
+      border: 1px solid var(--brushed-gold);
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 4rem auto 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      color: var(--executive-navy);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Core Services Grid */
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
