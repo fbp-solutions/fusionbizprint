@@ -8,17 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVXWTHS7PM"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-MVXWTHS7PM');
-  </script>
-
   <style>
     :root {
       --executive-navy: #0F2B48;
@@ -115,7 +104,7 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 1.75rem;
       align-items: center;
     }
 
@@ -296,7 +285,7 @@
       line-height: 1.6;
     }
 
-    /* Dual-Portal Hybrid Callout Banner */
+    /* Centered Dual-Portal Hybrid Callout Banner */
     .hub-banner-wrapper {
       max-width: 1200px;
       margin: 0 auto 4rem;
@@ -307,13 +296,13 @@
       background: var(--executive-navy);
       border: 2px solid var(--brushed-gold);
       border-radius: 8px;
-      padding: 2.5rem;
+      padding: 3rem 2.5rem;
       color: var(--white);
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+      text-align: center;
+      gap: 1.75rem;
       box-shadow: var(--shadow-md);
     }
 
@@ -328,12 +317,13 @@
       color: rgba(255, 255, 255, 0.85);
       font-size: 0.98rem;
       max-width: 650px;
-      margin: 0;
+      margin: 0 auto;
     }
 
     .hub-banner-buttons {
       display: flex;
       gap: 1rem;
+      justify-content: center;
       flex-wrap: wrap;
       align-items: center;
     }
@@ -450,6 +440,30 @@
       color: rgba(255, 255, 255, 0.5);
     }
 
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      background: rgba(197, 160, 89, 0.15);
+      color: var(--brushed-gold);
+      border: 1px solid var(--brushed-gold);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .social-links a:hover {
+      background-color: var(--brushed-gold);
+      color: var(--executive-navy);
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
       nav ul { display: none; }
@@ -458,6 +472,15 @@
       .hub-banner-buttons a { width: 100%; text-align: center; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVXWTHS7PM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MVXWTHS7PM');
+  </script>
 </head>
 <body>
 
@@ -473,10 +496,11 @@
       </a>
       <nav>
         <ul>
+          <li><a href="https://fusionbizprint.com">Main Hub</a></li>
+          <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
+          <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#ecosystem">Partner Tools</a></li>
-          <li><a href="https://realtorhub.fusionbizprint.com/" target="_blank" class="nav-highlight">Realtor Hub</a></li>
-          <li><a href="https://print.fusionbizprint.com" target="_blank">Print Portal</a></li>
         </ul>
       </nav>
     </div>
@@ -536,10 +560,10 @@
         <p>Access high-volume trade print fulfillment for everyday business operations or enter our specialized real estate portal for industry-tailored marketing collateral.</p>
       </div>
       <div class="hub-banner-buttons">
-        <a href="https://realtorhub.fusionbizprint.com/" target="_blank" class="btn-primary" style="white-space: nowrap;">
+        <a href="https://realtorhub.fusionbizprint.com/" class="btn-primary" style="white-space: nowrap;">
           Realtor Hub <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
         </a>
-        <a href="https://print.fusionbizprint.com" target="_blank" class="btn-secondary" style="color: white; border-color: white; white-space: nowrap; background-color: transparent;">
+        <a href="https://print.fusionbizprint.com" class="btn-secondary" style="color: white; border-color: white; white-space: nowrap; background-color: transparent;">
           Commercial Print Portal <i class="fa-solid fa-store" style="margin-left: 5px;"></i>
         </a>
       </div>
@@ -676,14 +700,19 @@
           </div>
         </div>
         <p>Your single partner for business strategy, trusted partner integrations, and physical print execution. Let's build something amazing together.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/fusionbizprint/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/fusionbizprint/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
       </div>
 
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Portals & Links</h4>
+        <p><a href="https://fusionbizprint.com">Main Hub</a></p>
+        <p><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></p>
+        <p><a href="https://print.fusionbizprint.com">Print Portal</a></p>
         <p><a href="#services">Core Services</a></p>
         <p><a href="#ecosystem">Partner Tools</a></p>
-        <p><a href="https://realtorhub.fusionbizprint.com/" target="_blank">Realtor Hub</a></p>
-        <p><a href="https://print.fusionbizprint.com" target="_blank">Print Portal</a></p>
       </div>
 
       <div class="footer-col">
