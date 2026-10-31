@@ -44,7 +44,6 @@
             padding: 0 2rem;
         }
 
-        /* Header / Nav */
         header {
             background-color: var(--navy);
             color: var(--white);
@@ -137,7 +136,6 @@
             background-color: var(--gold-hover);
         }
 
-        /* Hero Section */
         .hero {
             padding: 90px 0 70px;
             text-align: center;
@@ -164,7 +162,6 @@
             margin: 0 auto 35px;
         }
 
-        /* Sections */
         section {
             padding: 70px 0;
         }
@@ -235,72 +232,6 @@
             color: var(--gold);
         }
 
-        /* Lifecycle Section */
-        .lifecycle-section {
-            background-color: var(--white);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .lifecycle-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .lifecycle-step {
-            background: var(--paper);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .step-num {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--gold);
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .lifecycle-step h4 {
-            color: var(--navy);
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .lifecycle-step p {
-            color: var(--gray-text);
-            font-size: 0.9rem;
-        }
-
-        /* Booking / Intake CTA Banner */
-        .intake-banner {
-            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5f 100%);
-            color: var(--white);
-            border-radius: 16px;
-            padding: 60px 40px;
-            text-align: center;
-            margin: 40px 0;
-            border: 2px solid var(--gold);
-        }
-
-        .intake-banner h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .intake-banner p {
-            color: #cbd5e1;
-            max-width: 650px;
-            margin: 0 auto 30px;
-            font-size: 1.05rem;
-        }
-
-        /* Footer */
         footer {
             background-color: var(--navy);
             color: var(--white);
@@ -356,4 +287,111 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size:
+            .hero h1 { font-size: 2.25rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="https://fusionbizprint.com" class="logo-group">
+                <div class="logo-box">FB</div>
+                <div class="logo-text">
+                    <span class="logo-title">FUSION BIZ</span>
+                    <span class="logo-subtitle">& PRINT SOLUTIONS</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="https://fusionbizprint.com">Main Hub</a></li>
+                    <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
+                    <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
+                    <li><a href="mailto:orders@fusionbizprint.com" class="btn-gold">Client Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Establish & Scale Your Legacy With a <span>Unified Partner</span></h1>
+            <p>From business strategy, legal registration, and cloud workspace setup to CRM automation and high-impact physical print execution.</p>
+            <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 0.9rem 2rem; font-size: 1.05rem;">Book a Consultation</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Specialized Enterprise Ecosystems</h2>
+                <p>Navigate directly to our dedicated vertical portals built for high-performance execution.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div>
+                        <h3>Main Consulting Hub</h3>
+                        <p>Comprehensive strategy from corporate registration and cloud workspace setup (Google/Gemini) to custom workflow automation and growth advisory.</p>
+                    </div>
+                    <a href="mailto:orders@fusionbizprint.com?subject=General%20Consulting%20Inquiry" class="card-link">Inquire on Strategy &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Realtor Hub</h3>
+                        <p>Industry-tailored marketing collateral designed specifically for real estate professionals—featuring custom sign bundles, property feature sheets, and open-house packages.</p>
+                    </div>
+                    <a href="https://realtorhub.fusionbizprint.com" class="card-link">Enter Realtor Portal &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Commercial Print Portal</h3>
+                        <p>High-volume trade print fulfillment for everyday business operations. Premium soft-touch business cards, marketing flyers, large-format vinyl banners, and custom packaging.</p>
+                    </div>
+                    <a href="https://print.fusionbizprint.com" class="card-link">Enter Print Portal &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-group" style="margin-bottom: 10px;">
+                        <div class="logo-box">FB</div>
+                        <div class="logo-text">
+                            <span class="logo-title">FUSION BIZ</span>
+                            <span class="logo-subtitle">& PRINT SOLUTIONS</span>
+                        </div>
+                    </div>
+                    <p>Your single partner for business strategy, trusted partner integrations, and physical print execution. Let's build something amazing together.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Portals & Links</h4>
+                    <ul>
+                        <li><a href="https://fusionbizprint.com">Main Hub</a></li>
+                        <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
+                        <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact & Inquiries</h4>
+                    <ul>
+                        <li><a href="mailto:orders@fusionbizprint.com">General Support</a></li>
+                        <li><a href="mailto:orders@fusionbizprint.com?subject=Corporate%20Account%20Setup">Corporate Accounts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fusion Business & Print Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
