@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fusion Business & Print Solutions | Elite Consulting & Trade Print Ecosystem</title>
+    <title>Fusion Business & Print Solutions | Unified Consulting & Trade Ecosystem</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVXWTHS7PM"></script>
     <script>
@@ -27,6 +27,7 @@
             --gray-text: #64748B;
             --border: #E2E8F0;
             --white: #FFFFFF;
+            --success: #10B981;
         }
 
         * {
@@ -143,6 +144,8 @@
             gap: 0.5rem;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            cursor: pointer;
+            border: none;
         }
 
         .btn-gold:hover {
@@ -347,7 +350,6 @@
             color: var(--gold);
             margin-bottom: 15px;
             line-height: 1;
-            font-variant-numeric: tabular-nums;
         }
 
         .lifecycle-step h4 {
@@ -363,39 +365,118 @@
             line-height: 1.6;
         }
 
-        /* CRM & Tech Infrastructure Section */
-        .tech-section {
-            background-color: var(--paper);
-            padding: 90px 0;
+        /* Interactive Checklist Widget Section */
+        .checklist-section {
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            position: relative;
         }
 
-        .tech-grid {
+        .checklist-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(197, 160, 89, 0.3);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .checklist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .check-item {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 24px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .check-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--gold);
+        }
+
+        .check-item.checked {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--success);
+        }
+
+        .check-box {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.9rem;
+            color: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .check-item.checked .check-box {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        /* CRM Workflow Integration Section */
+        .crm-section {
+            background-color: var(--paper);
+            padding: 100px 0;
+        }
+
+        .crm-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
         }
 
-        .tech-card {
+        .crm-card {
             background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(15, 43, 72, 0.03);
         }
 
-        .tech-card h4 {
+        .crm-card h4 {
             color: var(--navy);
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .tech-card p {
+        .crm-card p {
             color: var(--gray-text);
-            font-size: 0.95rem;
+            font-size: 1.025rem;
+            line-height: 1.65;
         }
 
-        /* High-End Conversion Banner */
+        /* Conversion Banner */
         .intake-banner {
             background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
             color: var(--white);
@@ -405,15 +486,12 @@
             margin: 60px 0;
             border: 2px solid rgba(197, 160, 89, 0.4);
             box-shadow: 0 25px 60px rgba(7, 23, 40, 0.3);
-            position: relative;
-            overflow: hidden;
         }
 
         .intake-banner h3 {
             font-size: 2.75rem;
             margin-bottom: 20px;
             font-weight: 900;
-            letter-spacing: -0.02em;
         }
 
         .intake-banner p {
@@ -421,7 +499,6 @@
             max-width: 720px;
             margin: 0 auto 40px;
             font-size: 1.2rem;
-            line-height: 1.6;
         }
 
         /* Footer */
@@ -542,142 +619,3 @@
                 </div>
 
                 <div class="card">
-                    <div>
-                        <div class="card-icon-box">02</div>
-                        <h3>Realtor Hub</h3>
-                        <p>Industry-tailored marketing collateral designed specifically for real estate professionals—featuring custom sign bundles, property feature sheets, and open-house packages.</p>
-                    </div>
-                    <a href="https://realtorhub.fusionbizprint.com" class="card-link">Enter Realtor Portal &rarr;</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="card-icon-box">03</div>
-                        <h3>Commercial Print Portal</h3>
-                        <p>High-volume trade print fulfillment for everyday business operations. Premium soft-touch business cards, marketing flyers, large-format vinyl banners, and custom packaging.</p>
-                    </div>
-                    <a href="https://print.fusionbizprint.com" class="card-link">Enter Print Portal &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6-Stage Business Lifecycle Framework -->
-    <section class="lifecycle-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The 6-Stage Business Lifecycle Framework</h2>
-                <p>A systematic roadmap guiding your venture from initial concept to high-volume market dominance.</p>
-            </div>
-
-            <div class="lifecycle-grid">
-                <div class="lifecycle-step">
-                    <div class="step-num">01</div>
-                    <h4>Strategy & Foundation</h4>
-                    <p>Business plan validation, legal structure setup, and brand identity definition.</p>
-                </div>
-                <div class="lifecycle-step">
-                    <div class="step-num">02</div>
-                    <h4>Digital Infrastructure</h4>
-                    <p>Google Workspace setup, custom domain provisioning, and professional email configuration.</p>
-                </div>
-                <div class="lifecycle-step">
-                    <div class="step-num">03</div>
-                    <h4>CRM & Workflow Automation</h4>
-                    <p>HubSpot & Monday.com pipeline sync, lead pre-qualification, and automated client booking.</p>
-                </div>
-                <div class="lifecycle-step">
-                    <div class="step-num">04</div>
-                    <h4>Physical Print & Branding</h4>
-                    <p>Pre-flight verified commercial print collateral, business cards, signage, and packaging.</p>
-                </div>
-                <div class="lifecycle-step">
-                    <div class="step-num">05</div>
-                    <h4>Omnichannel Marketing</h4>
-                    <p>Targeted digital campaigns, social asset templates, and localized realtor lead generation.</p>
-                </div>
-                <div class="lifecycle-step">
-                    <div class="step-num">06</div>
-                    <h4>Scale & Optimization</h4>
-                    <p>Advanced analytics integration (GA4), volume wholesale broker pricing, and ongoing growth advisory.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Integrated Tech & CRM Workflows -->
-    <section class="tech-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Automated CRM & Intake Infrastructure</h2>
-                <p>Engineered for seamless client pre-qualification and project milestone tracking.</p>
-            </div>
-
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h4>Google Forms & Calendar</h4>
-                    <p>Instant client intake questionnaires that filter leads and instantly trigger automated Google Meet strategy sessions.</p>
-                </div>
-                <div class="tech-card">
-                    <h4>HubSpot & Monday.com Sync</h4>
-                    <p>Centralized deal pipelines and task automation tracking every deliverable from initial proofing to final print fulfillment.</p>
-                </div>
-                <div class="tech-card">
-                    <h4>Pre-Flight Print Standards</h4>
-                    <p>Mandatory 300 DPI checks, CMYK conversion validation, and 0.125" bleed margins across all trade print operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking & Intake CTA Banner -->
-    <section style="background-color: var(--paper); padding: 60px 0;">
-        <div class="container">
-            <div class="intake-banner">
-                <h3>Ready to Accelerate Your Enterprise?</h3>
-                <p>Connect with our executive consulting team to map out your digital infrastructure, CRM workflows, and trade print fulfillment.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:orders@fusionbizprint.com?subject=Enterprise%20Strategy%20Inquiry" class="btn-gold" style="padding: 1.1rem 2.75rem; font-size: 1.125rem;">Request Strategic Review &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo-group" style="margin-bottom: 15px;">
-                        <div class="logo-box">FB</div>
-                        <div class="logo-text">
-                            <span class="logo-title">FUSION BIZ</span>
-                            <span class="logo-subtitle">& PRINT SOLUTIONS</span>
-                        </div>
-                    </div>
-                    <p>Your single partner for business strategy, trusted partner integrations, and physical print execution. Let's build something amazing together.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Portals & Links</h4>
-                    <ul>
-                        <li><a href="https://fusionbizprint.com">Main Hub</a></li>
-                        <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
-                        <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact & Inquiries</h4>
-                    <ul>
-                        <li><a href="mailto:orders@fusionbizprint.com">General Support</a></li>
-                        <li><a href="mailto:orders@fusionbizprint.com?subject=Corporate%20Account%20Setup">Corporate Accounts</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Fusion Business & Print Solutions. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
