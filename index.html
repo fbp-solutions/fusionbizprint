@@ -161,14 +161,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -205,7 +197,7 @@
             font-size: 1.25rem;
             color: #94a3b8;
             max-width: 760px;
-            margin: 0 auto 45px;
+            margin: 0 auto 40px;
             font-weight: 400;
             line-height: 1.6;
         }
@@ -296,7 +288,6 @@
             color: var(--navy);
             margin-bottom: 15px;
             font-weight: 800;
-            letter-spacing: -0.01em;
         }
 
         .card p {
@@ -327,7 +318,6 @@
             background-color: var(--white);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            position: relative;
         }
 
         .lifecycle-grid {
@@ -341,7 +331,6 @@
             padding: 40px;
             border-radius: 16px;
             border: 1px solid var(--border);
-            position: relative;
             transition: all 0.3s ease;
         }
 
@@ -374,6 +363,38 @@
             line-height: 1.6;
         }
 
+        /* CRM & Tech Infrastructure Section */
+        .tech-section {
+            background-color: var(--paper);
+            padding: 90px 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tech-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .tech-card h4 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .tech-card p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+
         /* High-End Conversion Banner */
         .intake-banner {
             background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
@@ -386,14 +407,6 @@
             box-shadow: 0 25px 60px rgba(7, 23, 40, 0.3);
             position: relative;
             overflow: hidden;
-        }
-
-        .intake-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
-            pointer-events: none;
         }
 
         .intake-banner h3 {
@@ -439,7 +452,6 @@
             font-size: 1.1rem;
             margin-bottom: 25px;
             font-weight: 800;
-            letter-spacing: 0.5px;
         }
 
         .footer-col ul {
@@ -504,7 +516,7 @@
         <div class="container">
             <div class="hero-badge">Executive Agency Ecosystem</div>
             <h1>Establish & Scale Your Legacy With a <span>Unified Partner</span></h1>
-            <p>From foundational strategy and legal registration to CRM pipeline automation (HubSpot/Monday.com) and high-impact physical print execution.</p>
+            <p>From foundational strategy and legal registration to automated CRM pipelines (HubSpot/Monday.com) and pre-flight verified physical print execution.</p>
             <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
                 <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 1rem 2.75rem; font-size: 1.125rem;">Book a Consultation &rarr;</a>
             </div>
@@ -588,6 +600,31 @@
                     <div class="step-num">06</div>
                     <h4>Scale & Optimization</h4>
                     <p>Advanced analytics integration (GA4), volume wholesale broker pricing, and ongoing growth advisory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrated Tech & CRM Workflows -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Automated CRM & Intake Infrastructure</h2>
+                <p>Engineered for seamless client pre-qualification and project milestone tracking.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Google Forms & Calendar</h4>
+                    <p>Instant client intake questionnaires that filter leads and instantly trigger automated Google Meet strategy sessions.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>HubSpot & Monday.com Sync</h4>
+                    <p>Centralized deal pipelines and task automation tracking every deliverable from initial proofing to final print fulfillment.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Pre-Flight Print Standards</h4>
+                    <p>Mandatory 300 DPI checks, CMYK conversion validation, and 0.125" bleed margins across all trade print operations.</p>
                 </div>
             </div>
         </div>
