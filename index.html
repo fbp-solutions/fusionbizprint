@@ -44,6 +44,7 @@
             padding: 0 2rem;
         }
 
+        /* Header / Nav */
         header {
             background-color: var(--navy);
             color: var(--white);
@@ -136,6 +137,7 @@
             background-color: var(--gold-hover);
         }
 
+        /* Hero Section */
         .hero {
             padding: 90px 0 70px;
             text-align: center;
@@ -162,6 +164,7 @@
             margin: 0 auto 35px;
         }
 
+        /* Sections */
         section {
             padding: 70px 0;
         }
@@ -232,6 +235,72 @@
             color: var(--gold);
         }
 
+        /* Lifecycle Section */
+        .lifecycle-section {
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lifecycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .lifecycle-step {
+            background: var(--paper);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .step-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .lifecycle-step h4 {
+            color: var(--navy);
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .lifecycle-step p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* Booking / Intake CTA Banner */
+        .intake-banner {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5f 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 40px 0;
+            border: 2px solid var(--gold);
+        }
+
+        .intake-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .intake-banner p {
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
         footer {
             background-color: var(--navy);
             color: var(--white);
@@ -295,6 +364,7 @@
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
         <div class="container nav-container">
             <a href="https://fusionbizprint.com" class="logo-group">
@@ -315,14 +385,18 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Establish & Scale Your Legacy With a <span>Unified Partner</span></h1>
-            <p>From business strategy, legal registration, and cloud workspace setup to CRM automation and high-impact physical print execution.</p>
-            <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 0.9rem 2rem; font-size: 1.05rem;">Book a Consultation</a>
+            <p>From corporate strategy and legal registration to CRM workflow automation (HubSpot/Monday.com) and high-impact physical print execution.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 0.9rem 2rem; font-size: 1.05rem;">Book a Consultation</a>
+            </div>
         </div>
     </section>
 
+    <!-- Core Portals & Ecosystem -->
     <section>
         <div class="container">
             <div class="section-header">
@@ -334,7 +408,7 @@
                 <div class="card">
                     <div>
                         <h3>Main Consulting Hub</h3>
-                        <p>Comprehensive strategy from corporate registration and cloud workspace setup (Google/Gemini) to custom workflow automation and growth advisory.</p>
+                        <p>Comprehensive strategy from corporate registration and cloud workspace setup (Google/Gemini) to custom CRM pipeline automation and growth advisory.</p>
                     </div>
                     <a href="mailto:orders@fusionbizprint.com?subject=General%20Consulting%20Inquiry" class="card-link">Inquire on Strategy &rarr;</a>
                 </div>
@@ -358,6 +432,63 @@
         </div>
     </section>
 
+    <!-- 6-Stage Business Lifecycle Framework -->
+    <section class="lifecycle-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The 6-Stage Business Lifecycle Framework</h2>
+                <p>A systematic roadmap guiding your venture from initial concept to high-volume market dominance.</p>
+            </div>
+
+            <div class="lifecycle-grid">
+                <div class="lifecycle-step">
+                    <div class="step-num">01</div>
+                    <h4>Strategy & Foundation</h4>
+                    <p>Business plan validation, legal structure setup, and brand identity definition.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">02</div>
+                    <h4>Digital Infrastructure</h4>
+                    <p>Google Workspace setup, custom domain provisioning, and professional email configuration.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">03</div>
+                    <h4>CRM & Workflow Automation</h4>
+                    <p>HubSpot & Monday.com pipeline sync, lead pre-qualification, and automated client booking.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">04</div>
+                    <h4>Physical Print & Branding</h4>
+                    <p>Pre-flight verified commercial print collateral, business cards, signage, and packaging.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">05</div>
+                    <h4>Omnichannel Marketing</h4>
+                    <p>Targeted digital campaigns, social asset templates, and localized realtor lead generation.</p>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">06</div>
+                    <h4>Scale & Optimization</h4>
+                    <p>Advanced analytics integration (GA4), volume wholesale broker pricing, and ongoing growth advisory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking & Intake CTA Banner -->
+    <section style="background-color: var(--paper); padding: 20px 0 60px 0;">
+        <div class="container">
+            <div class="intake-banner">
+                <h3>Ready to Accelerate Your Enterprise?</h3>
+                <p>Connect with our executive consulting team to map out your digital infrastructure, CRM workflows, and trade print fulfillment.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:orders@fusionbizprint.com?subject=Enterprise%20Strategy%20Inquiry" class="btn-gold" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Request Strategic Review</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
