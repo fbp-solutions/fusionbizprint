@@ -1,518 +1,406 @@
-import React, { useState, useMemo } from 'react';
-import { 
-  ShoppingBag, Search, Filter, CheckCircle2, AlertCircle, ExternalLink, 
-  ChevronRight, Sliders, ShieldCheck, Truck, RotateCcw, HelpCircle, Eye, Check, X
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion Business & Print Solutions | Unified Partner for Startups & Scaling</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVXWTHS7PM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MVXWTHS7PM');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0F2B48;
+            --gold: #C5A059;
+            --gold-hover: #b08d48;
+            --paper: #F8F6F0;
+            --dark: #1E293B;
+            --gray-text: #475569;
+            --border: #E2E8F0;
+            --white: #FFFFFF;
+        }
 
-export default function App() {
-  // Navigation & View States
-  const [activeTab, setActiveTab] = useState('catalog');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [cartCount, setCartCount] = useState(2);
-  const [cartOpen, setCartOpen] = useState(false);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  // Interactive Print Spec Checklist State
-  const [checklist, setChecklist] = useState([
-    { id: '1', label: 'High-resolution PDF provided (300 DPI minimum)', category: 'Artwork Preparation', checked: true },
-    { id: '2', label: '0.125 inch bleed added to edge bounds', category: 'Artwork Preparation', checked: true },
-    { id: '3', label: 'Color mode set to CMYK (not RGB)', category: 'Artwork Preparation', checked: true },
-    { id: '4', label: 'Paper stock & weight specified (e.g. 16pt, 100lb Gloss)', category: 'Print Specifications', checked: false },
-    { id: '5', label: 'Finish selected (Velvet Soft-Touch, Matte, Gloss, Spot UV)', category: 'Print Specifications', categoryKey: 'finish', checked: false },
-    { id: '6', label: 'Quantity & shipping destination provided', category: 'Print Specifications', checked: false }
-  ]);
+        body {
+            font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont;
+            color: var(--dark);
+            background-color: var(--paper);
+            line-height: 1.6;
+        }
 
-  // Product Catalog Data
-  const products = [
-    {
-      id: 1,
-      name: '21pt Soft-Touch Velvet Business Cards',
-      category: 'Stationery',
-      price: '$180.00',
-      rating: 4.9,
-      reviews: 128,
-      imageBg: 'from-[#0F2B48] to-[#163c63]',
-      tag: 'Best Seller',
-      description: 'Luxurious velvet touch lamination with heavyweight 18pt stock core. Unmatched tactile impression.'
-    },
-    {
-      id: 2,
-      name: '10mm Coroplast Real Estate Post Signs',
-      category: 'Signage',
-      price: '$120.00',
-      rating: 5.0,
-      reviews: 94,
-      imageBg: 'from-[#C5A059] to-[#9a783d]',
-      tag: 'Realtor Favorite',
-      description: 'Weatherproof fluted polypropylene with top and bottom realtor grommets for secure rider mounting.'
-    },
-    {
-      id: 3,
-      name: '9ft Outdoor Custom Feather Flag',
-      category: 'Displays',
-      price: '$249.00',
-      rating: 4.8,
-      reviews: 62,
-      imageBg: 'from-[#163c63] to-[#0F2B48]',
-      tag: 'High Impact',
-      description: 'Dye-sublimated outdoor fabric complete with robust ground spike, pole set, and carrying case.'
-    },
-    {
-      id: 4,
-      name: '100lb Gloss Marketing Flyers & Brochures',
-      category: 'Marketing',
-      price: '$145.00',
-      rating: 4.9,
-      reviews: 210,
-      imageBg: 'from-[#0F2B48] to-[#25466c]',
-      tag: 'Popular',
-      description: 'Vibrant full-color gloss coating designed for maximum visual retention and brand impact.'
-    },
-    {
-      id: 5,
-      name: 'Heavy Duty PVC A-Frame Sandwich Board',
-      category: 'Signage',
-      price: '$295.00',
-      rating: 4.7,
-      reviews: 45,
-      imageBg: 'from-[#C5A059] to-[#80622a]',
-      tag: 'Durable',
-      description: 'Sturdy structural core with integrated carrying handles for effortless open-house deployments.'
-    },
-    {
-      id: 6,
-      name: 'Custom Product Packaging & Retail Boxes',
-      category: 'Packaging',
-      price: '$350.00',
-      rating: 4.9,
-      reviews: 88,
-      imageBg: 'from-[#163c63] to-[#C5A059]',
-      tag: 'Custom',
-      description: 'Corrugated retail boxes and product sleeves engineered for exceptional unboxing experiences.'
-    }
-  ];
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-  // Filter products by category
-  const filteredProducts = useMemo(() => {
-    if (selectedCategory === 'All') return products;
-    return products.filter(p => p.category === selectedCategory);
-  }, [selectedCategory]);
+        /* Header / Nav */
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--gold);
+        }
 
-  // Toggle checklist item
-  const toggleChecklistItem = (id) => {
-    setChecklist(prev => prev.map(item => item.id === id ? { ...item, checked: !item.checked } : item));
-  };
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  const completedChecksCount = checklist.filter(i => i.checked).length;
-  const checklistProgress = Math.round((completedChecksCount / checklist.length) * 100);
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--white);
+        }
 
-  return (
-    <div className="min-h-screen bg-[#F8F6F0] text-slate-800 font-sans selection:bg-[#C5A059] selection:text-[#0F2B48]">
-      
-      {/* HEADER NAVBAR */}
-      <header className="sticky top-0 z-50 bg-[#0F2B48] text-white border-b-4 border-[#C5A059] shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          
-          {/* LOGO */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('catalog')}>
-            <div className="w-11 h-11 bg-[#0F2B48] border-2 border-[#C5A059] rounded-md flex items-center justify-center font-extrabold text-xl text-[#C5A059] shadow-inner">
-              FB
-            </div>
-            <div>
-              <span className="block font-black text-lg tracking-tight leading-none text-white">COMMERCIAL PRINT PORTAL</span>
-              <span className="block text-[10px] text-[#C5A059] tracking-widest font-semibold uppercase mt-0.5">FUSION BIZ & PRINT SOLUTIONS</span>
-            </div>
-          </div>
+        .logo-box {
+            width: 42px;
+            height: 42px;
+            background: var(--navy);
+            border: 2px solid var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--gold);
+        }
 
-          {/* NAVIGATION LINKS */}
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-semibold">
-            <button onClick={() => setActiveTab('catalog')} className={`transition hover:text-[#C5A059] ${activeTab === 'catalog' ? 'text-[#C5A059] border-b-2 border-[#C5A059] pb-1' : 'text-slate-200'}`}>
-              Home & Catalog
-            </button>
-            <button onClick={() => setActiveTab('specs')} className={`transition hover:text-[#C5A059] ${activeTab === 'specs' ? 'text-[#C5A059] border-b-2 border-[#C5A059] pb-1' : 'text-slate-200'}`}>
-              Custom Specs & Pre-Flight
-            </button>
-            <a href="https://fusionbizprint.com" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-[#C5A059] transition flex items-center gap-1">
-              Main Hub <ExternalLink className="w-3.5 h-3.5" />
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--navy);
+            padding: 0.65rem 1.35rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--navy) 0%, #16365c 100%);
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            max-width: 850px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        /* Portals Section */
+        .portals-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--navy);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--gray-text);
+            font-size: 1.05rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(15, 43, 72, 0.08);
+            border-color: var(--gold);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-link:hover {
+            color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 50px 0 20px;
+            border-top: 4px solid var(--gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            max-width: 350px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="https://fusionbizprint.com" class="logo-group">
+                <div class="logo-box">FB</div>
+                <div class="logo-text">
+                    <span class="logo-title">FUSION BIZ</span>
+                    <span class="logo-subtitle">& PRINT SOLUTIONS</span>
+                </div>
             </a>
-            <a href="https://realtorhub.fusionbizprint.com" target="_blank" rel="noreferrer" className="text-[#C5A059] hover:underline flex items-center gap-1">
-              Realtor Hub <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          </nav>
-
-          {/* UTILITY ACTIONS */}
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setCartOpen(!cartOpen)}
-              className="relative bg-[#163c63] hover:bg-[#1f4e82] text-white p-2.5 rounded-lg border border-[#C5A059]/40 flex items-center gap-2 transition"
-            >
-              <ShoppingBag className="w-5 h-5 text-[#C5A059]" />
-              <span className="hidden sm:inline text-xs font-bold">Cart</span>
-              <span className="absolute -top-1.5 -right-1.5 bg-[#C5A059] text-[#0F2B48] font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow">
-                {cartCount}
-              </span>
-            </button>
-          </div>
-
+            <nav>
+                <ul>
+                    <li><a href="https://fusionbizprint.com">Main Hub</a></li>
+                    <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
+                    <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
+                    <li><a href="mailto:orders@fusionbizprint.com" class="btn-gold">Client Support</a></li>
+                </ul>
+            </nav>
         </div>
-      </header>
+    </header>
 
-      {/* MAIN VIEW CONTROLLER */}
-      {activeTab === 'catalog' && (
-        <main className="animate-fadeIn">
-          
-          {/* HERO BANNER */}
-          <section className="bg-gradient-to-br from-[#0F2B48] via-[#163c63] to-[#0F2B48] text-white py-20 px-4 relative overflow-hidden">
-            <div className="max-w-5xl mx-auto text-center relative z-10">
-              <span className="inline-block bg-[#C5A059]/20 text-[#C5A059] border border-[#C5A059] px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-6">
-                Commercial Trade & Wholesale Print Portal
-              </span>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-                Precision Print Manufacturing & <span className="text-[#C5A059]">Stationery Solutions</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-                Direct trade fulfillment for high-touch velvet business cards, rigid coroplast post signs, event displays, and custom packaging. Verified pre-flight checklist guaranteed.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
-                  onClick={() => setActiveTab('specs')}
-                  className="bg-[#C5A059] hover:bg-[#b08d48] text-[#0F2B48] text-base font-extrabold px-8 py-4 rounded shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2"
-                >
-                  <Sliders className="w-5 h-5" /> Launch Print Spec Inspector
-                </button>
-                <a 
-                  href="#catalog-grid"
-                  className="bg-transparent hover:bg-white/10 text-white border-2 border-white/80 text-base font-bold px-8 py-4 rounded transition flex items-center justify-center gap-2"
-                >
-                  Browse Catalog Products
-                </a>
-              </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Unified Partner for <span>Startups & Scaling</span></h1>
+            <p>Providing seamless business lifecycle strategy, robust tech integrations, and high-impact physical print execution from concept to scale.</p>
+            <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 0.9rem 2rem; font-size: 1.05rem;">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Core Portals & Solutions -->
+    <section class="portals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Specialized Enterprise Ecosystems</h2>
+                <p>Navigate directly to our dedicated vertical portals built for high-performance execution.</p>
             </div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none" />
-          </section>
-
-          {/* CATEGORY FILTER BAR */}
-          <div id="catalog-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-200 pb-6">
-              <div>
-                <h2 className="text-2xl font-extrabold text-[#0F2B48]">Featured Print Catalog</h2>
-                <p className="text-sm text-slate-600 mt-1">Select a category to filter professional trade products.</p>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {['All', 'Stationery', 'Signage', 'Displays', 'Marketing', 'Packaging'].map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-4 py-2 text-xs font-bold rounded-lg transition ${selectedCategory === cat ? 'bg-[#0F2B48] text-[#C5A059] shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* PRODUCT GRID BLOCKS */}
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProducts.map((product) => (
-                <div key={product.id} className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                  
-                  {/* PRODUCT CARD TOP IMAGE MOCKUP */}
-                  <div className={`h-48 bg-gradient-to-tr ${product.imageBg} relative p-6 flex flex-col justify-between overflow-hidden`}>
-                    <div className="flex justify-between items-center">
-                      <span className="bg-[#C5A059] text-[#0F2B48] text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">
-                        {product.tag}
-                      </span>
-                      <span className="text-xs font-mono text-slate-200 bg-black/30 px-2 py-0.5 rounded">
-                        {product.category}
-                      </span>
-                    </div>
-
-                    <div className="text-center">
-                      <span className="text-white font-extrabold text-lg drop-shadow-md">{product.name}</span>
-                    </div>
-
-                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                      <button 
-                        onClick={() => setCartCount(c => c + 1)}
-                        className="bg-[#C5A059] hover:bg-[#b08d48] text-[#0F2B48] font-bold px-4 py-2 rounded shadow-lg text-xs flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition"
-                      >
-                        <ShoppingBag className="w-3.5 h-3.5" /> Quick Add to Cart
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* PRODUCT DETAILS */}
-                  <div className="p-6 flex-grow flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-lg font-bold text-[#0F2B48] group-hover:text-[#C5A059] transition">{product.name}</h3>
-                        <span className="font-black text-lg text-[#0F2B48]">{product.price}</span>
-                      </div>
-                      <p className="text-xs text-slate-600 mb-4 leading-relaxed">{product.description}</p>
-                    </div>
-
-                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-1 text-xs text-amber-600 font-bold">
-                        ★ {product.rating} <span className="text-slate-400 font-normal">({product.reviews} reviews)</span>
-                      </div>
-                      <button 
-                        onClick={() => setCartCount(c => c + 1)}
-                        className="text-xs font-bold text-[#0F2B48] hover:text-[#C5A059] flex items-center gap-1"
-                      >
-                        Configure Spec <ChevronRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* INTERACTIVE PRINT ORDER SPEC CHECKLIST SECTION */}
-          <section className="bg-white border-t border-b border-slate-200 py-20 px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center max-w-2xl mx-auto mb-12">
-                <span className="bg-[#0F2B48]/10 text-[#0F2B48] text-xs font-extrabold px-3 py-1 rounded uppercase tracking-wider">
-                  Quality Assurance Inspector
-                </span>
-                <h2 className="text-3xl font-extrabold text-[#0F2B48] mt-3">Interactive Print Order Spec Checklist</h2>
-                <p className="text-slate-600 text-sm mt-2">
-                  Verify your artwork preparation and technical print specifications before submitting files to press.
-                </p>
-              </div>
-
-              {/* CHECKLIST CARD */}
-              <div className="bg-[#F8F6F0] rounded-2xl border-2 border-[#C5A059]/50 p-8 shadow-xl">
-                <div className="flex flex-col sm:flex-row justify-between items-center mb-8 pb-6 border-b border-slate-200 gap-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#0F2B48]">Pre-Press Verification Status</h3>
-                    <p className="text-xs text-slate-600 mt-0.5">{completedChecksCount} of {checklist.length} specifications verified successfully.</p>
-                  </div>
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
-                    <div className="w-48 bg-slate-200 h-3 rounded-full overflow-hidden">
-                      <div className="bg-[#C5A059] h-full transition-all duration-500" style={{ width: `${checklistProgress}%` }} />
-                    </div>
-                    <span className="text-sm font-black text-[#0F2B48]">{checklistProgress}%</span>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  {checklist.map((item) => (
-                    <div 
-                      key={item.id} 
-                      onClick={() => toggleChecklistItem(item.id)}
-                      className={`p-4 rounded-xl border transition cursor-pointer flex items-center justify-between ${item.checked ? 'bg-emerald-50/80 border-emerald-300 text-slate-800' : 'bg-white border-slate-200 text-slate-700 hover:border-[#C5A059]'}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs transition ${item.checked ? 'bg-emerald-600 text-white' : 'border-2 border-slate-300 bg-slate-50'}`}>
-                          {item.checked && '✓'}
-                        </div>
-                        <div>
-                          <span className="text-xs uppercase font-extrabold text-[#C5A059] tracking-wide block">{item.category}</span>
-                          <span className="text-sm font-semibold">{item.label}</span>
-                        </div>
-                      </div>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded ${item.checked ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-500'}`}>
-                        {item.checked ? 'Verified' : 'Pending'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <p className="text-xs text-slate-500">
-                    Need help formatting bleeds or color modes? Download our master Photoshop & Illustrator templates.
-                  </p>
-                  <button 
-                    onClick={() => setActiveTab('specs')}
-                    className="bg-[#0F2B48] hover:bg-[#163c63] text-white font-bold px-6 py-3 rounded-lg text-sm transition shadow flex items-center gap-2"
-                  >
-                    Open Full Spec Inspector <Sliders className="w-4 h-4 text-[#C5A059]" />
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-        </main>
-      )}
-
-      {/* TAB 2: CUSTOM SPECS & PRE-FLIGHT INSPECTOR */}
-      {activeTab === 'specs' && (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 animate-fadeIn">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-extrabold text-[#0F2B48]">Technical Specs & Pre-Flight Inspector</h2>
-            <p className="text-slate-600 mt-2">Comprehensive guide for file preparation, color spaces, paper stocks, and finishing options.</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            {/* ARTWORK PREP SPEC CARD */}
-            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[#C5A059]/20 text-[#C5A059] font-bold flex items-center justify-center">01</div>
-                <div>
-                  <h3 className="text-xl font-bold text-[#0F2B48]">Artwork Preparation Standards</h3>
-                  <p className="text-xs text-slate-500">Mandatory file guidelines for press readiness</p>
-                </div>
-              </div>
-
-              <ul className="space-y-4 text-sm text-slate-700">
-                <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>High-Resolution PDF (300 DPI+):</strong> All submitted vector artwork and raster images must be exported at a minimum of 300 DPI to avoid pixelation during printing.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>0.125" Bleed Margin:</strong> Extend your background color or imagery 0.125 inches past the final trim edge on all four sides to prevent unprinted white lines during cutting.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>CMYK Color Space:</strong> Convert all files from RGB to CMYK format prior to export. RGB color profiles can shift noticeably when transferred to physical offset or digital presses.
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* PRINT SPECIFICATIONS CARD */}
-            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[#C5A059]/20 text-[#C5A059] font-bold flex items-center justify-center">02</div>
-                <div>
-                  <h3 className="text-xl font-bold text-[#0F2B48]">Print Specifications & Finishes</h3>
-                  <p className="text-xs text-slate-500">Substrate and lamination technical index</p>
-                </div>
-              </div>
-
-              <ul className="space-y-4 text-sm text-slate-700">
-                <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>Paper Stock Weights:</strong> Business cards are printed on heavyweight 18pt stock with 3mil Velvet Soft-Touch lamination (total 21pt feel).
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>Rigid Substrates:</strong> Real estate post signs and site displays utilize heavy 10mm fluted coroplast with reinforced top/bottom grommets.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>Specialty Finishes:</strong> Spot UV gloss highlights, matte lamination, and metallic foil stamping available upon custom quote request.
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </main>
-      )}
-
-      {/* SLIDE-OUT CART DRAWER */}
-      {cartOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex justify-end">
-          <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6 animate-slideLeft">
-            <div>
-              <div className="flex justify-between items-center border-b border-slate-200 pb-4 mb-6">
-                <h3 className="font-extrabold text-lg text-[#0F2B48] flex items-center gap-2">
-                  <ShoppingBag className="w-5 h-5 text-[#C5A059]" /> Shopping Cart ({cartCount})
-                </h3>
-                <button onClick={() => setCartOpen(false)} className="text-slate-400 hover:text-slate-700 font-bold">✕</button>
-              </div>
-
-              <div className="space-y-4">
-                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex gap-3 items-center">
-                  <div className="w-16 h-16 bg-[#0F2B48] rounded flex items-center justify-center text-xs font-bold text-[#C5A059]">21pt</div>
-                  <div className="flex-grow">
-                    <h4 className="text-xs font-bold text-[#0F2B48]">21pt Soft-Touch Velvet Business Cards</h4>
-                    <span className="text-[11px] text-slate-500">1,000 units • CMYK Verified</span>
-                    <div className="flex justify-between items-center mt-1">
-                      <span className="text-xs font-black text-[#0F2B48]">$180.00</span>
-                      <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Pre-Flight OK</span>
+            <div class="grid-3">
+                <div class="card">
+                    <div>
+                        <h3>Main Consulting Hub</h3>
+                        <p>Comprehensive strategy from legal registration and cloud infrastructure setup (Google/Gemini) to CRM workflow automation (HubSpot/Monday.com) and e-commerce launch.</p>
                     </div>
-                  </div>
+                    <a href="mailto:orders@fusionbizprint.com?subject=General%20Consulting%20Inquiry" class="card-link">Inquire on Strategy &rarr;</a>
                 </div>
 
-                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex gap-3 items-center">
-                  <div className="w-16 h-16 bg-[#C5A059] rounded flex items-center justify-center text-xs font-bold text-[#0F2B48]">10mm</div>
-                  <div className="flex-grow">
-                    <h4 className="text-xs font-bold text-[#0F2B48]">10mm Coroplast Post Sign</h4>
-                    <span className="text-[11px] text-slate-500">24" x 30" • Grommets</span>
-                    <div className="flex justify-between items-center mt-1">
-                      <span className="text-xs font-black text-[#0F2B48]">$120.00</span>
-                      <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Pre-Flight OK</span>
+                <div class="card">
+                    <div>
+                        <h3>Realtor Hub</h3>
+                        <p>Industry-tailored marketing collateral designed specifically for real estate professionals—featuring custom sign bundles, property feature sheets, and open-house packages.</p>
                     </div>
-                  </div>
+                    <a href="https://realtorhub.fusionbizprint.com" class="card-link">Enter Realtor Portal &rarr;</a>
                 </div>
-              </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Commercial Print Portal</h3>
+                        <p>High-volume trade print fulfillment for everyday business operations. Premium soft-touch business cards, marketing flyers, large-format vinyl banners, and custom packaging.</p>
+                    </div>
+                    <a href="https://print.fusionbizprint.com" class="card-link">Enter Print Portal &rarr;</a>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div className="border-t border-slate-200 pt-4 space-y-4">
-              <div className="flex justify-between text-sm font-bold text-[#0F2B48]">
-                <span>Estimated Subtotal</span>
-                <span>$300.00 CAD</span>
-              </div>
-              <button 
-                onClick={() => { alert('Proceeding to secure checkout.'); setCartOpen(false); }}
-                className="w-full bg-[#C5A059] hover:bg-[#b08d48] text-[#0F2B48] font-extrabold py-3.5 rounded-lg text-sm transition shadow-md"
-              >
-                Proceed to Secure Checkout
-              </button>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-group" style="margin-bottom: 10px;">
+                        <div class="logo-box">FB</div>
+                        <div class="logo-text">
+                            <span class="logo-title">FUSION BIZ</span>
+                            <span class="logo-subtitle">& PRINT SOLUTIONS</span>
+                        </div>
+                    </div>
+                    <p>Your single partner for business strategy, trusted partner integrations, and physical print execution. Let's build something amazing together.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Portals & Links</h4>
+                    <ul>
+                        <li><a href="https://fusionbizprint.com">Main Hub</a></li>
+                        <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
+                        <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact & Inquiries</h4>
+                    <ul>
+                        <li><a href="mailto:orders@fusionbizprint.com">General Support</a></li>
+                        <li><a href="mailto:orders@fusionbizprint.com?subject=Corporate%20Account%20Setup">Corporate Accounts</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* FOOTER */}
-      <footer className="bg-[#0F2B48] text-white border-t-4 border-[#C5A059] pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 text-sm">
-          <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-[#0F2B48] border-2 border-[#C5A059] rounded flex items-center justify-center font-bold text-sm text-[#C5A059]">FB</div>
-              <span className="font-extrabold text-base tracking-wide text-white">COMMERCIAL PRINT PORTAL</span>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fusion Business & Print Solutions. All Rights Reserved.</p>
             </div>
-            <p className="text-slate-300 text-xs leading-relaxed max-w-sm">
-              Providing commercial-grade print collateral, technical sign manufacturing, and automated business infrastructure for ambitious enterprises.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-[#C5A059] font-bold text-xs uppercase tracking-wider mb-4">Portal Navigation</h4>
-            <ul className="space-y-2 text-xs text-slate-300">
-              <li><button onClick={() => setActiveTab('catalog')} className="hover:text-[#C5A059]">Home & Catalog</button></li>
-              <li><button onClick={() => setActiveTab('specs')} className="hover:text-[#C5A059]">Custom Specs & Pre-Flight</button></li>
-              <li><a href="https://fusionbizprint.com" target="_blank" rel="noreferrer" className="hover:text-[#C5A059]">Main Business Hub</a></li>
-              <li><a href="https://realtorhub.fusionbizprint.com" target="_blank" rel="noreferrer" className="hover:text-[#C5A059]">Realtor Print Hub</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[#C5A059] font-bold text-xs uppercase tracking-wider mb-4">Client Support</h4>
-            <ul className="space-y-2 text-xs text-slate-300">
-              <li><a href="mailto:orders@fusionbizprint.com" className="hover:text-[#C5A059]">orders@fusionbizprint.com</a></li>
-              <li><span className="text-slate-400">Artwork Verification & Proofs</span></li>
-              <li><span className="text-slate-400">Wholesale Trade Accounts</span></li>
-            </ul>
-          </div>
         </div>
+    </footer>
 
-        <div className="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400 border-t border-white/10 pt-6">
-          &copy; 2026 Fusion Business & Print Solutions. Commercial Trade Printing Division. All Rights Reserved.
-        </div>
-      </footer>
-
-    </div>
-  );
-}
+</body>
+</html>
