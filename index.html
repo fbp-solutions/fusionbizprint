@@ -139,7 +139,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
+            padding: 90px 0 70px;
             text-align: center;
             background: linear-gradient(180deg, var(--navy) 0%, #16365c 100%);
             color: var(--white);
@@ -164,15 +164,14 @@
             margin: 0 auto 35px;
         }
 
-        /* Portals Section */
-        .portals-section {
-            padding: 60px 0;
-            background-color: var(--white);
+        /* Sections */
+        section {
+            padding: 70px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
@@ -194,7 +193,7 @@
         }
 
         .card {
-            background: var(--paper);
+            background: var(--white);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 40px 30px;
@@ -234,6 +233,38 @@
 
         .card-link:hover {
             color: var(--gold);
+        }
+
+        /* Tech Stack / Workflow Section */
+        .tech-stack {
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tech-item {
+            background: var(--paper);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .tech-item h4 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .tech-item p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -324,14 +355,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Your Unified Partner for <span>Startups & Scaling</span></h1>
-            <p>Providing seamless business lifecycle strategy, robust tech integrations, and high-impact physical print execution from concept to scale.</p>
+            <h1>Establish & Scale Your Legacy With a <span>Unified Partner</span></h1>
+            <p>From business strategy, legal registration, and cloud workspace setup to CRM automation and high-impact physical print execution.</p>
             <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 0.9rem 2rem; font-size: 1.05rem;">Book a Consultation</a>
         </div>
     </section>
 
-    <!-- Core Portals & Solutions -->
-    <section class="portals-section">
+    <!-- Core Portals & Ecosystem -->
+    <section>
         <div class="container">
             <div class="section-header">
                 <h2>Specialized Enterprise Ecosystems</h2>
@@ -342,7 +373,7 @@
                 <div class="card">
                     <div>
                         <h3>Main Consulting Hub</h3>
-                        <p>Comprehensive strategy from legal registration and cloud infrastructure setup (Google/Gemini) to CRM workflow automation (HubSpot/Monday.com) and e-commerce launch.</p>
+                        <p>Comprehensive strategy from corporate registration and cloud workspace setup (Google/Gemini) to custom workflow automation and growth advisory.</p>
                     </div>
                     <a href="mailto:orders@fusionbizprint.com?subject=General%20Consulting%20Inquiry" class="card-link">Inquire on Strategy &rarr;</a>
                 </div>
@@ -361,6 +392,31 @@
                         <p>High-volume trade print fulfillment for everyday business operations. Premium soft-touch business cards, marketing flyers, large-format vinyl banners, and custom packaging.</p>
                     </div>
                     <a href="https://print.fusionbizprint.com" class="card-link">Enter Print Portal &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Automation Integration -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Integrated Infrastructure & Tech Stack</h2>
+                <p>Built with robust modern tools to streamline your customer onboarding and operational workflows.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Google Workspace & Forms</h4>
+                    <p>Automated pre-qualification intake forms routing client inquiries directly to calendar bookings.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>CRM & Monday.com Sync</h4>
+                    <p>Seamless lead pipeline tracking, customer management, and project milestone automation.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Technical Pre-Flight Standards</h4>
+                    <p>Enforced 300 DPI resolution, CMYK color profiles, and 0.125" bleed margins across all print fulfillment.</p>
                 </div>
             </div>
         </div>
