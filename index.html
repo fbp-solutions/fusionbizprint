@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+=<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fusion Business & Print Solutions | Unified Partner for Startups & Scaling</title>
+    <title>Fusion Business & Print Solutions | Elite Consulting & Trade Print Ecosystem</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVXWTHS7PM"></script>
     <script>
@@ -12,17 +12,19 @@
       gtag('js', new Date());
       gtag('config', 'G-MVXWTHS7PM');
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #0F2B48;
-            --navy-dark: #0a1d33;
+            --navy-deep: #071728;
+            --navy-light: #16365c;
             --gold: #C5A059;
             --gold-hover: #b08d48;
+            --gold-light: rgba(197, 160, 89, 0.12);
             --paper: #F8F6F0;
             --card-bg: #FFFFFF;
-            --dark: #1E293B;
-            --gray-text: #475569;
+            --dark: #0F172A;
+            --gray-text: #64748B;
             --border: #E2E8F0;
             --white: #FFFFFF;
         }
@@ -37,25 +39,28 @@
             font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont;
             color: var(--dark);
             background-color: var(--paper);
-            line-height: 1.6;
+            line-height: 1.65;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Sticky Header */
+        /* Glassmorphic Sticky Header */
         header {
-            background-color: var(--navy);
+            background-color: rgba(15, 43, 72, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: var(--white);
-            padding: 1.15rem 2rem;
+            padding: 1.1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--gold);
-            box-shadow: 0 4px 20px rgba(15, 43, 72, 0.15);
+            border-bottom: 2px solid rgba(197, 160, 89, 0.4);
+            box-shadow: 0 10px 30px rgba(7, 23, 40, 0.25);
         }
 
         .nav-container {
@@ -75,16 +80,16 @@
         .logo-box {
             width: 44px;
             height: 44px;
-            background: var(--navy-dark);
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
             border: 2px solid var(--gold);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.25rem;
             color: var(--gold);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .logo-text {
@@ -93,18 +98,18 @@
         }
 
         .logo-title {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
             letter-spacing: 0.5px;
             line-height: 1.1;
         }
 
         .logo-subtitle {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: var(--gold);
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         nav ul {
@@ -115,11 +120,11 @@
         }
 
         nav a {
-            color: var(--white);
+            color: #cbd5e1;
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
+            font-size: 0.925rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
@@ -127,154 +132,197 @@
         }
 
         .btn-gold {
-            background-color: var(--gold);
-            color: var(--navy);
-            padding: 0.7rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4b26f 100%);
+            color: var(--navy-deep);
+            padding: 0.75rem 1.6rem;
+            border-radius: 8px;
+            font-weight: 800;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
         }
 
         .btn-gold:hover {
-            background-color: var(--gold-hover);
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, var(--gold-hover) 0%, var(--gold) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            padding: 110px 0 90px;
+            padding: 130px 0 110px;
             text-align: center;
-            background: radial-gradient(circle at center, #16365c 0%, var(--navy) 100%);
+            background: radial-gradient(circle at 50% 20%, var(--navy-light) 0%, var(--navy-deep) 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
         }
 
-        .hero::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: linear-gradient(to top, var(--paper), transparent);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: rgba(197, 160, 89, 0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gold-light);
             color: var(--gold);
-            border: 1px solid var(--gold);
+            border: 1px solid rgba(197, 160, 89, 0.3);
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            max-width: 900px;
-            margin: 0 auto 20px;
-            line-height: 1.15;
+            font-size: 3.75rem;
+            font-weight: 900;
+            max-width: 950px;
+            margin: 0 auto 24px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
         .hero h1 span {
-            color: var(--gold);
+            background: linear-gradient(135deg, #f3e5ab 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: #cbd5e1;
-            max-width: 720px;
-            margin: 0 auto 40px;
+            color: #94a3b8;
+            max-width: 760px;
+            margin: 0 auto 45px;
             font-weight: 400;
+            line-height: 1.6;
         }
 
         /* Sections General */
         section {
-            padding: 90px 0;
+            padding: 100px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             color: var(--navy);
-            font-weight: 800;
-            margin-bottom: 12px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .section-header p {
             color: var(--gray-text);
-            font-size: 1.1rem;
-            max-width: 650px;
+            font-size: 1.15rem;
+            max-width: 680px;
             margin: 0 auto;
         }
 
-        /* Portal Cards Grid */
+        /* Ecosystem Portal Cards */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 35px;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 45px 35px;
+            border-radius: 20px;
+            padding: 50px 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(15, 43, 72, 0.04);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--navy);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            transition: background 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(15, 43, 72, 0.1);
+            box-shadow: 0 25px 50px rgba(15, 43, 72, 0.12);
             border-color: var(--gold);
         }
 
+        .card:hover::before {
+            background: var(--gold);
+        }
+
+        .card-icon-box {
+            width: 60px;
+            height: 60px;
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
         .card h3 {
-            font-size: 1.65rem;
+            font-size: 1.75rem;
             color: var(--navy);
             margin-bottom: 15px;
             font-weight: 800;
+            letter-spacing: -0.01em;
         }
 
         .card p {
             color: var(--gray-text);
-            font-size: 1rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            font-size: 1.025rem;
+            margin-bottom: 35px;
+            line-height: 1.65;
         }
 
         .card-link {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--navy);
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: color 0.2s;
+            gap: 10px;
+            font-size: 1.05rem;
+            transition: color 0.2s ease, gap 0.2s ease;
         }
 
         .card-link:hover {
             color: var(--gold);
+            gap: 14px;
         }
 
-        /* Lifecycle Framework Section */
+        /* 6-Stage Lifecycle Framework */
         .lifecycle-section {
             background-color: var(--white);
             border-top: 1px solid var(--border);
@@ -284,96 +332,112 @@
 
         .lifecycle-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 30px;
         }
 
         .lifecycle-step {
             background: var(--paper);
-            padding: 35px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 16px;
             border: 1px solid var(--border);
-            transition: all 0.2s ease;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
         .lifecycle-step:hover {
             border-color: var(--gold);
             background: var(--white);
-            box-shadow: 0 10px 25px rgba(15, 43, 72, 0.05);
+            box-shadow: 0 15px 35px rgba(15, 43, 72, 0.08);
+            transform: translateY(-4px);
         }
 
         .step-num {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--gold);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             line-height: 1;
+            font-variant-numeric: tabular-nums;
         }
 
         .lifecycle-step h4 {
             color: var(--navy);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             font-weight: 800;
         }
 
         .lifecycle-step p {
             color: var(--gray-text);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        /* Intake & Booking Banner */
+        /* High-End Conversion Banner */
         .intake-banner {
-            background: linear-gradient(135deg, var(--navy) 0%, #16365c 100%);
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
             color: var(--white);
-            border-radius: 20px;
-            padding: 70px 50px;
+            border-radius: 24px;
+            padding: 80px 60px;
             text-align: center;
-            margin: 50px 0;
-            border: 2px solid var(--gold);
-            box-shadow: 0 20px 50px rgba(15, 43, 72, 0.2);
+            margin: 60px 0;
+            border: 2px solid rgba(197, 160, 89, 0.4);
+            box-shadow: 0 25px 60px rgba(7, 23, 40, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intake-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .intake-banner h3 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 800;
+            font-size: 2.75rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
         }
 
         .intake-banner p {
             color: #cbd5e1;
-            max-width: 680px;
-            margin: 0 auto 35px;
-            font-size: 1.15rem;
+            max-width: 720px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            background-color: var(--navy);
+            background-color: var(--navy-deep);
             color: var(--white);
-            padding: 70px 0 30px;
+            padding: 80px 0 40px;
             border-top: 4px solid var(--gold);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-col p {
             color: #94a3b8;
-            font-size: 0.95rem;
-            margin-top: 18px;
-            max-width: 380px;
-            line-height: 1.6;
+            font-size: 1rem;
+            margin-top: 20px;
+            max-width: 400px;
+            line-height: 1.7;
         }
 
         .footer-col h4 {
             color: var(--gold);
-            font-size: 1.05rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             font-weight: 800;
             letter-spacing: 0.5px;
         }
@@ -383,14 +447,14 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-col ul li a {
             color: #cbd5e1;
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            font-size: 1rem;
+            transition: color 0.2s ease;
         }
 
         .footer-col ul li a:hover {
@@ -399,14 +463,14 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 35px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.75rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
             nav ul { display: none; }
         }
@@ -429,7 +493,7 @@
                     <li><a href="https://fusionbizprint.com">Main Hub</a></li>
                     <li><a href="https://realtorhub.fusionbizprint.com">Realtor Hub</a></li>
                     <li><a href="https://print.fusionbizprint.com">Print Portal</a></li>
-                    <li><a href="mailto:orders@fusionbizprint.com" class="btn-gold">Client Support</a></li>
+                    <li><a href="mailto:orders@fusionbizprint.com" class="btn-gold">Client Support &rarr;</a></li>
                 </ul>
             </nav>
         </div>
@@ -438,11 +502,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">Executive Agency Ecosystem</span>
+            <div class="hero-badge">Executive Agency Ecosystem</div>
             <h1>Establish & Scale Your Legacy With a <span>Unified Partner</span></h1>
             <p>From foundational strategy and legal registration to CRM pipeline automation (HubSpot/Monday.com) and high-impact physical print execution.</p>
             <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Book a Consultation</a>
+                <a href="mailto:orders@fusionbizprint.com?subject=Consultation%20Inquiry" class="btn-gold" style="padding: 1rem 2.75rem; font-size: 1.125rem;">Book a Consultation &rarr;</a>
             </div>
         </div>
     </section>
@@ -458,6 +522,7 @@
             <div class="grid-3">
                 <div class="card">
                     <div>
+                        <div class="card-icon-box">01</div>
                         <h3>Main Consulting Hub</h3>
                         <p>Comprehensive strategy from corporate registration and cloud workspace setup (Google/Gemini) to custom CRM pipeline automation and growth advisory.</p>
                     </div>
@@ -466,6 +531,7 @@
 
                 <div class="card">
                     <div>
+                        <div class="card-icon-box">02</div>
                         <h3>Realtor Hub</h3>
                         <p>Industry-tailored marketing collateral designed specifically for real estate professionals—featuring custom sign bundles, property feature sheets, and open-house packages.</p>
                     </div>
@@ -474,6 +540,7 @@
 
                 <div class="card">
                     <div>
+                        <div class="card-icon-box">03</div>
                         <h3>Commercial Print Portal</h3>
                         <p>High-volume trade print fulfillment for everyday business operations. Premium soft-touch business cards, marketing flyers, large-format vinyl banners, and custom packaging.</p>
                     </div>
@@ -527,13 +594,13 @@
     </section>
 
     <!-- Booking & Intake CTA Banner -->
-    <section style="background-color: var(--paper); padding: 50px 0;">
+    <section style="background-color: var(--paper); padding: 60px 0;">
         <div class="container">
             <div class="intake-banner">
                 <h3>Ready to Accelerate Your Enterprise?</h3>
                 <p>Connect with our executive consulting team to map out your digital infrastructure, CRM workflows, and trade print fulfillment.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:orders@fusionbizprint.com?subject=Enterprise%20Strategy%20Inquiry" class="btn-gold" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Request Strategic Review</a>
+                    <a href="mailto:orders@fusionbizprint.com?subject=Enterprise%20Strategy%20Inquiry" class="btn-gold" style="padding: 1.1rem 2.75rem; font-size: 1.125rem;">Request Strategic Review &rarr;</a>
                 </div>
             </div>
         </div>
@@ -544,7 +611,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="logo-group" style="margin-bottom: 12px;">
+                    <div class="logo-group" style="margin-bottom: 15px;">
                         <div class="logo-box">FB</div>
                         <div class="logo-text">
                             <span class="logo-title">FUSION BIZ</span>
